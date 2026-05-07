@@ -1,29 +1,25 @@
-const OpenAI = require('openai')
+const { GoogleGenerativeAI } = require("@google/generative-ai")
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY
-})
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
 
 async function gerarRespostaGPT(interesse) {
 
+    const model = genAI.getGenerativeModel({
+        model: "gemini-2.0-flash"
+    })
+
     const prompt = `
-Você é um assistente de vendas de roupas.
+Você é um assistente de vendas especialista em roupas.
 
 Cliente:
 ${interesse}
 `
 
-    const resposta = await openai.chat.completions.create({
-        model: 'gpt-4.1-mini',
-        messages: [
-            {
-                role: 'system',
-                content: prompt
-            }
-        ]
-    })
+    const result = await model.generateContent(prompt)
 
-    return resposta.choices[0].message.content
+    const response = result.response.text()
+
+    return response
 }
 
 module.exports = {
