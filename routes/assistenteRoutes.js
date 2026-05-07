@@ -1,12 +1,7 @@
 const express = require('express')
-
 const router = express.Router()
+const { gerarResposta } = require('../controllers/assistenteController')
 
-const {
-    gerarResposta
-} = require('../controllers/assistenteController')
-const { gerarRespostaGPT } = require('../services/openaiService')
-
-router.post('/assistente-vendas', gerarRespostaGPT)
+router.post('/assistente-vendas', gerarResposta)
 
 module.exports = router

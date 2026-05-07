@@ -5,21 +5,21 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
 async function gerarRespostaGPT(interesse) {
 
     const model = genAI.getGenerativeModel({
-        model: "gemini-2.0-flash"
-    })
+        model: "gemini-2.5-flash"
+    });
 
     const prompt = `
-Você é um assistente de vendas especialista em roupas.
+        Você é um assistente de vendas especialista em roupas.
 
-Cliente:
-${interesse}
-`
+        Cliente:
+        ${interesse}
+    `;
 
-    const result = await model.generateContent(prompt)
+    const result = await model.generateContent(prompt);
 
-    const response = result.response.text()
+    const response = result.response.text();
 
-    return response
+    return response;
 }
 
 module.exports = {

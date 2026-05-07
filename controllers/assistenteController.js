@@ -1,3 +1,5 @@
+const { gerarRespostaGPT } = require('../services/openaiService')
+
 async function gerarResposta(req, res) {
 
     const { interesse } = req.body
@@ -8,10 +10,22 @@ async function gerarResposta(req, res) {
         })
     }
 
-    res.json({
-        sucesso: true,
-        mensagem: `Cliente interessado em: ${interesse}`
-    })
+
+
+    try {
+        const resposta = await gerarRespostaGPT(interesse)
+
+        res.json({
+            sucesso: true,
+            resposta
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            erro: 'Erro ao gerar resposta',
+            descricao: error
+        })
+    }
 }
 
 module.exports = {
