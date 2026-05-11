@@ -1,4 +1,4 @@
-const { gerarRespostaGPT } = require('../services/openaiService')
+const { gerarRespostaGemini } = require('../services/openaiService')
 
 async function gerarResposta(req, res) {
 
@@ -13,7 +13,7 @@ async function gerarResposta(req, res) {
 
 
     try {
-        const resposta = await gerarRespostaGPT(interesse)
+        const resposta = await gerarRespostaGemini(interesse)
 
         res.json({
             sucesso: true,
