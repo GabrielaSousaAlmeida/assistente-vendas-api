@@ -1,4 +1,4 @@
-const { gerarRespostaGemini } = require('../services/openaiService')
+const { gerarRespostaGemini } = require('../services/geminiService')
 
 async function gerarResposta(req, res) {
 
