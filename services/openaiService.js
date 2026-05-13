@@ -264,11 +264,9 @@ Sempre finalize exatamente com:
 * Nunca responda apenas com listas secas.
 * As respostas devem parecer atendimento premium de loja real.
 
-
 Cliente:
 ${interesse}
 `
-
     const resposta = await openai.chat.completions.create({
         model: 'gpt-4.1-mini',
         messages: [
