@@ -62,7 +62,7 @@ Essa versão utiliza a API da OpenAI.
 Para realizar interações, é necessário possuir créditos na OpenAI.
 
 ```bash
-git checkout main
+git checkout master
 ```
 
 ---
