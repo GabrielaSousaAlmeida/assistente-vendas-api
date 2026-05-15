@@ -29,7 +29,7 @@ O assistente foi projetado para ajudar vendedores a:
 
 O projeto possui duas versões da API em branches diferentes:
 
-- `main` → versão utilizando OpenAI (GPT)
+- `master` → versão utilizando OpenAI (GPT)
 - `gemini` → versão utilizando Google Gemini
 
 Você pode escolher qual versão deseja executar.
